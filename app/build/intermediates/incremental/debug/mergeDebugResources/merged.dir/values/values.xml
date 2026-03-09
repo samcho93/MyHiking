@@ -2238,6 +2238,10 @@
     <string name="reassign_photos_label">사진 목록</string>
     <string name="reassign_select_mountain">이동할 산 선택</string>
     <string name="reassign_title">%s 마커 이동</string>
+    <string name="rescan_complete">스캔 완료: 새 사진 %d장 발견</string>
+    <string name="rescan_no_new">새로운 사진이 없습니다.</string>
+    <string name="rescan_photos">새로 스캔</string>
+    <string name="rescan_started">새로운 사진을 검색합니다…</string>
     <string name="search_menu_title">Search</string>
     <string name="searchbar_scrolling_view_behavior" translatable="false">
     com.google.android.material.search.SearchBar$ScrollingViewBehavior

@@ -40,4 +40,8 @@
     <string name="nearby_mountain_add_photo">근처 산에 사진 추가</string>
     <string name="select_mountain_for_photo">사진을 추가할 산을 선택하세요</string>
     <string name="no_nearby_mountains">근처에 등록된 산이 없습니다.</string>
+    <string name="rescan_photos">새로 스캔</string>
+    <string name="rescan_started">새로운 사진을 검색합니다…</string>
+    <string name="rescan_complete">스캔 완료: 새 사진 %d장 발견</string>
+    <string name="rescan_no_new">새로운 사진이 없습니다.</string>
 </resources>

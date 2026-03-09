@@ -103,6 +103,18 @@ class MapActivity : AppCompatActivity() {
                 showPhotoList(mountain)
             }
         }
+
+        viewModel.rescanResult.observe(this) { count ->
+            if (count != null) {
+                val msg = if (count > 0) {
+                    getString(R.string.rescan_complete, count)
+                } else {
+                    getString(R.string.rescan_no_new)
+                }
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                viewModel.clearRescanResult()
+            }
+        }
     }
 
     private fun setupClickListeners() {
@@ -113,6 +125,11 @@ class MapActivity : AppCompatActivity() {
             }
             switchMap(newProvider)
             viewModel.switchMapProvider()
+        }
+
+        binding.fabRescan.setOnClickListener {
+            Toast.makeText(this, getString(R.string.rescan_started), Toast.LENGTH_SHORT).show()
+            viewModel.rescanPhotos()
         }
 
         binding.cbLocationView.setOnCheckedChangeListener { _, isChecked ->

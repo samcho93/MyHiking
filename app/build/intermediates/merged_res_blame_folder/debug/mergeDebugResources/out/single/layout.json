@@ -4,10 +4,6 @@
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_thumbnail_marker.xml"
     },
     {
-        "merged": "com.myhiking.app-mergeDebugResources-46:/layout/view_thumbnail_marker_famous.xml",
-        "source": "com.myhiking.app-main-49:/layout/view_thumbnail_marker_famous.xml"
-    },
-    {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-mergeDebugResources-46:\\layout\\view_stacked_marker.xml",
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_stacked_marker.xml"
     },
@@ -20,10 +16,6 @@
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\item_reassign_photo.xml"
     },
     {
-        "merged": "com.myhiking.app-mergeDebugResources-46:/layout/fragment_photo_list.xml",
-        "source": "com.myhiking.app-main-49:/layout/fragment_photo_list.xml"
-    },
-    {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-mergeDebugResources-46:\\layout\\fragment_photo_list.xml",
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\fragment_photo_list.xml"
     },
@@ -32,8 +24,8 @@
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\item_photo_preview.xml"
     },
     {
-        "merged": "com.myhiking.app-mergeDebugResources-46:/layout/view_stacked_marker_famous.xml",
-        "source": "com.myhiking.app-main-49:/layout/view_stacked_marker_famous.xml"
+        "merged": "com.myhiking.app-mergeDebugResources-46:/layout/activity_map.xml",
+        "source": "com.myhiking.app-main-49:/layout/activity_map.xml"
     },
     {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-mergeDebugResources-46:\\layout\\fragment_photo_view.xml",
@@ -46,6 +38,14 @@
     {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-mergeDebugResources-46:\\layout\\item_nearby_mountain.xml",
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\item_nearby_mountain.xml"
+    },
+    {
+        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-mergeDebugResources-46:\\layout\\view_thumbnail_marker_famous.xml",
+        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_thumbnail_marker_famous.xml"
+    },
+    {
+        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-mergeDebugResources-46:\\layout\\view_stacked_marker_famous.xml",
+        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_stacked_marker_famous.xml"
     },
     {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-mergeDebugResources-46:\\layout\\fragment_reassign.xml",

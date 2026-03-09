@@ -27,6 +27,9 @@ public final class ActivityMapBinding implements ViewBinding {
   public final CheckBox cbLocationView;
 
   @NonNull
+  public final FloatingActionButton fabRescan;
+
+  @NonNull
   public final FloatingActionButton fabSwitchMap;
 
   @NonNull
@@ -39,10 +42,12 @@ public final class ActivityMapBinding implements ViewBinding {
   public final TextView tvMapProvider;
 
   private ActivityMapBinding(@NonNull ConstraintLayout rootView, @NonNull CheckBox cbLocationView,
-      @NonNull FloatingActionButton fabSwitchMap, @NonNull FrameLayout mapContainer,
-      @NonNull ProgressBar mapProgressBar, @NonNull TextView tvMapProvider) {
+      @NonNull FloatingActionButton fabRescan, @NonNull FloatingActionButton fabSwitchMap,
+      @NonNull FrameLayout mapContainer, @NonNull ProgressBar mapProgressBar,
+      @NonNull TextView tvMapProvider) {
     this.rootView = rootView;
     this.cbLocationView = cbLocationView;
+    this.fabRescan = fabRescan;
     this.fabSwitchMap = fabSwitchMap;
     this.mapContainer = mapContainer;
     this.mapProgressBar = mapProgressBar;
@@ -82,6 +87,12 @@ public final class ActivityMapBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fabRescan;
+      FloatingActionButton fabRescan = ViewBindings.findChildViewById(rootView, id);
+      if (fabRescan == null) {
+        break missingId;
+      }
+
       id = R.id.fabSwitchMap;
       FloatingActionButton fabSwitchMap = ViewBindings.findChildViewById(rootView, id);
       if (fabSwitchMap == null) {
@@ -106,8 +117,8 @@ public final class ActivityMapBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMapBinding((ConstraintLayout) rootView, cbLocationView, fabSwitchMap,
-          mapContainer, mapProgressBar, tvMapProvider);
+      return new ActivityMapBinding((ConstraintLayout) rootView, cbLocationView, fabRescan,
+          fabSwitchMap, mapContainer, mapProgressBar, tvMapProvider);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

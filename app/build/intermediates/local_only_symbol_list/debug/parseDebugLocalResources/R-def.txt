@@ -31,6 +31,7 @@ drawable ic_close
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mountain_default
+drawable ic_refresh
 drawable ic_switch_map
 id btnAddPhoto
 id btnClose
@@ -39,6 +40,7 @@ id btnCloseViewer
 id btnMove
 id btnPermission
 id cbLocationView
+id fabRescan
 id fabSwitchMap
 id ivFullPhoto
 id ivMarkerThumb
@@ -115,6 +117,10 @@ string reassign_photo_title
 string reassign_photos_label
 string reassign_select_mountain
 string reassign_title
+string rescan_complete
+string rescan_no_new
+string rescan_photos
+string rescan_started
 string select_mountain_for_photo
 string switch_to_google
 string switch_to_naver

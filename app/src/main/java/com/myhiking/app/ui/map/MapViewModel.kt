@@ -35,6 +35,9 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
     private val _selectedMountain = MutableLiveData<MountainWithPhotos?>()
     val selectedMountain: LiveData<MountainWithPhotos?> = _selectedMountain
 
+    private val _rescanResult = MutableLiveData<Int?>()
+    val rescanResult: LiveData<Int?> = _rescanResult
+
     fun loadPhotosAndMatch() {
         viewModelScope.launch {
             _isLoading.value = true
@@ -212,6 +215,60 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
         matchingCache.saveAssignments(assignments)
+    }
+
+    /**
+     * 새 사진 다시 스캔: 이전 캐시 이후 추가된 사진만 증분 스캔하여 추가
+     */
+    fun rescanPhotos() {
+        viewModelScope.launch {
+            _isLoading.value = true
+            _rescanResult.value = null
+            try {
+                val cachedPhotos = matchingCache.loadCachedPhotos()
+                val cachedPhotoIds = cachedPhotos.map { it.id }.toSet()
+                val excludedIds = matchingCache.getExcludedPhotoIds()
+
+                // 증분 스캔 (새 사진만)
+                val newPhotos = photoRepository.scanGeotaggedPhotos(excludeIds = cachedPhotoIds)
+
+                // 삭제된 사진 감지
+                val currentMediaIds = photoRepository.getAllPhotoIds()
+                val validCachedPhotos = cachedPhotos.filter { it.id in currentMediaIds }
+
+                // 합치기
+                val allPhotos = validCachedPhotos + newPhotos
+                _allPhotos.value = allPhotos
+
+                // 재매칭
+                val userOverrides = matchingCache.getUserOverrides()
+                val filteredPhotos = allPhotos.filter { it.id !in excludedIds }
+                val matched = mountainRepository.matchPhotosToMountains(
+                    filteredPhotos, userOverrides
+                )
+                _mountainsWithPhotos.value = matched
+
+                // 캐시 저장
+                matchingCache.saveCachedPhotos(allPhotos)
+                val assignments = mutableMapOf<Long, Int>()
+                for (mtn in matched) {
+                    for (p in mtn.photos) {
+                        assignments[p.id] = mtn.mountain.id
+                    }
+                }
+                matchingCache.saveAssignments(assignments)
+
+                _rescanResult.value = newPhotos.size
+            } catch (_: Exception) {
+                _rescanResult.value = 0
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun clearRescanResult() {
+        _rescanResult.value = null
     }
 
     fun findNearbyMountains(lat: Double, lng: Double): List<Pair<Mountain, Double>> {
