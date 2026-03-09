@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="2dp">
+
+    <ImageView
+        android:id="@+id/ivMarkerThumb"
+        android:layout_width="@dimen/marker_size"
+        android:layout_height="@dimen/marker_size"
+        android:background="@drawable/bg_marker_frame"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/marker_border"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/tvPhotoCount"
+        android:layout_width="@dimen/badge_size"
+        android:layout_height="@dimen/badge_size"
+        android:layout_gravity="top|end"
+        android:background="@drawable/bg_photo_count_badge"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/badge_text_size"
+        android:textStyle="bold" />
+
+</FrameLayout>

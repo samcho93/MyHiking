@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marker_size">48dp</dimen>
+    <dimen name="marker_border">2dp</dimen>
+    <dimen name="badge_size">20dp</dimen>
+    <dimen name="badge_text_size">10sp</dimen>
+    <dimen name="photo_grid_spacing">4dp</dimen>
+    <dimen name="photo_list_item_height">120dp</dimen>
+    <dimen name="bottom_sheet_peek_height">300dp</dimen>
+</resources>

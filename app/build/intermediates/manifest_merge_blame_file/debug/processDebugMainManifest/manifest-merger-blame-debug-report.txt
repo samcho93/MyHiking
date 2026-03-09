@@ -1,0 +1,252 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.myhiking.app"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="36" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:4:5-67
+11-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:5:5-79
+12-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:5:22-76
+13    <uses-permission
+13-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:7:5-9:38
+14        android:name="android.permission.READ_EXTERNAL_STORAGE"
+14-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:8:9-64
+15        android:maxSdkVersion="32" />
+15-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:9:9-35
+16    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+16-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:10:5-76
+16-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:10:22-73
+17    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+17-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:11:5-90
+17-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:11:22-87
+18    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+18-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:12:5-80
+18-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:12:22-77
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:14:5-79
+19-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:14:22-76
+20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+20-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:15:5-81
+20-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:15:22-78
+21
+22    <uses-feature
+22-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:7:5-9:35
+23        android:glEsVersion="0x00020000"
+23-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:8:9-41
+24        android:required="true" />
+24-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:9:9-32
+25    <uses-feature
+25-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:10:5-12:36
+26        android:name="android.hardware.wifi"
+26-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:11:9-45
+27        android:required="false" />
+27-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:12:9-33
+28
+29    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+29-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:16:5-76
+29-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:16:22-73
+30
+31    <queries>
+31-->[com.google.android.gms:play-services-maps:19.0.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\a4f3505c1aa333f3716f8ed93657dc60\transformed\play-services-maps-19.0.0\AndroidManifest.xml:30:5-34:15
+32
+33        <!-- Needs to be explicitly declared on Android R+ -->
+34        <package android:name="com.google.android.apps.maps" />
+34-->[com.google.android.gms:play-services-maps:19.0.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\a4f3505c1aa333f3716f8ed93657dc60\transformed\play-services-maps-19.0.0\AndroidManifest.xml:33:9-64
+34-->[com.google.android.gms:play-services-maps:19.0.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\a4f3505c1aa333f3716f8ed93657dc60\transformed\play-services-maps-19.0.0\AndroidManifest.xml:33:18-61
+35    </queries>
+36
+37    <permission
+37-->[androidx.core:core:1.15.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9f82a0cc8a2772d84305d1684652ba05\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+38        android:name="com.myhiking.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+38-->[androidx.core:core:1.15.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9f82a0cc8a2772d84305d1684652ba05\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+39        android:protectionLevel="signature" />
+39-->[androidx.core:core:1.15.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9f82a0cc8a2772d84305d1684652ba05\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+40
+41    <uses-permission android:name="com.myhiking.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+41-->[androidx.core:core:1.15.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9f82a0cc8a2772d84305d1684652ba05\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+41-->[androidx.core:core:1.15.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9f82a0cc8a2772d84305d1684652ba05\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+42
+43    <application
+43-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:17:5-47:19
+44        android:name="com.myhiking.app.MyHikingApplication"
+44-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:18:9-44
+45        android:allowBackup="true"
+45-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:19:9-35
+46        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+46-->[androidx.core:core:1.15.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9f82a0cc8a2772d84305d1684652ba05\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
+47        android:debuggable="true"
+48        android:extractNativeLibs="false"
+49        android:icon="@mipmap/ic_launcher"
+49-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:20:9-43
+50        android:label="@string/app_name"
+50-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:21:9-41
+51        android:roundIcon="@mipmap/ic_launcher_round"
+51-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:22:9-54
+52        android:supportsRtl="true"
+52-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:23:9-35
+53        android:theme="@style/Theme.MyHiking" >
+53-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:24:9-46
+54        <meta-data
+55            android:name="com.naver.maps.map.NCP_KEY_ID"
+55-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:27:13-57
+56            android:value="09spzr23os" />
+56-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:28:13-51
+57        <meta-data
+58            android:name="com.google.android.geo.API_KEY"
+58-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:31:13-58
+59            android:value="AIzaSyBL6GS8IpYb_OuZg5zNAcWqZy-KKcVPwRU" />
+59-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:32:13-51
+60
+61        <activity
+61-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:34:9-42:20
+62            android:name="com.myhiking.app.MainActivity"
+62-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:35:13-41
+63            android:exported="true"
+63-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:36:13-36
+64            android:theme="@style/Theme.MyHiking" >
+64-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:37:13-50
+65            <intent-filter>
+65-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:38:13-41:29
+66                <action android:name="android.intent.action.MAIN" />
+66-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:39:17-69
+66-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:39:25-66
+67
+68                <category android:name="android.intent.category.LAUNCHER" />
+68-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:40:17-77
+68-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:40:27-74
+69            </intent-filter>
+70        </activity>
+71        <activity
+71-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:44:9-46:53
+72            android:name="com.myhiking.app.ui.map.MapActivity"
+72-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:45:13-47
+73            android:theme="@style/Theme.MyHiking" />
+73-->D:\Work\AndroidStudio\MyHiking\app\src\main\AndroidManifest.xml:46:13-50
+74        <activity
+74-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:19:9-23:51
+75            android:name="com.naver.maps.map.app.LegendActivity"
+75-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:20:13-65
+76            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+76-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:21:13-91
+77            android:label="@string/navermap_legend"
+77-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:22:13-52
+78            android:theme="@style/navermap_app" />
+78-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:23:13-48
+79        <activity
+79-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:24:9-28:51
+80            android:name="com.naver.maps.map.app.LegalNoticeActivity"
+80-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:25:13-70
+81            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+81-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:26:13-91
+82            android:label="@string/navermap_legal_notice"
+82-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:27:13-58
+83            android:theme="@style/navermap_app" />
+83-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:28:13-48
+84        <activity
+84-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:29:9-33:51
+85            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
+85-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:30:13-76
+86            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+86-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:31:13-91
+87            android:label="@string/navermap_open_source_license"
+87-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:32:13-65
+88            android:theme="@style/navermap_app" />
+88-->[com.naver.maps:map-sdk:3.21.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\51a26fa331a7fb12dc2502ce11815f25\transformed\map-sdk-3.21.0\AndroidManifest.xml:33:13-48
+89
+90        <meta-data
+90-->[com.google.maps.android:android-maps-utils:3.8.2] C:\Users\samdo\.gradle\caches\8.11.1\transforms\f2cf76fdb0e8fbb0179bd9d6a24ce72d\transformed\android-maps-utils-3.8.2\AndroidManifest.xml:8:9-10:69
+91            android:name="com.google.android.gms.version"
+91-->[com.google.maps.android:android-maps-utils:3.8.2] C:\Users\samdo\.gradle\caches\8.11.1\transforms\f2cf76fdb0e8fbb0179bd9d6a24ce72d\transformed\android-maps-utils-3.8.2\AndroidManifest.xml:9:13-58
+92            android:value="@integer/google_play_services_version" /> <!-- Needs to be explicitly declared on P+ -->
+92-->[com.google.maps.android:android-maps-utils:3.8.2] C:\Users\samdo\.gradle\caches\8.11.1\transforms\f2cf76fdb0e8fbb0179bd9d6a24ce72d\transformed\android-maps-utils-3.8.2\AndroidManifest.xml:10:13-66
+93        <uses-library
+93-->[com.google.android.gms:play-services-maps:19.0.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\a4f3505c1aa333f3716f8ed93657dc60\transformed\play-services-maps-19.0.0\AndroidManifest.xml:39:9-41:40
+94            android:name="org.apache.http.legacy"
+94-->[com.google.android.gms:play-services-maps:19.0.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\a4f3505c1aa333f3716f8ed93657dc60\transformed\play-services-maps-19.0.0\AndroidManifest.xml:40:13-50
+95            android:required="false" />
+95-->[com.google.android.gms:play-services-maps:19.0.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\a4f3505c1aa333f3716f8ed93657dc60\transformed\play-services-maps-19.0.0\AndroidManifest.xml:41:13-37
+96
+97        <activity
+97-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9686d65861133d6c033f080b8a0dd062\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+98            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+98-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9686d65861133d6c033f080b8a0dd062\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+99            android:exported="false"
+99-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9686d65861133d6c033f080b8a0dd062\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+100            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+100-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\9686d65861133d6c033f080b8a0dd062\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+101
+102        <provider
+102-->[androidx.emoji2:emoji2:1.3.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\e71cb1b199547c81357457e6543fede3\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+103            android:name="androidx.startup.InitializationProvider"
+103-->[androidx.emoji2:emoji2:1.3.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\e71cb1b199547c81357457e6543fede3\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+104            android:authorities="com.myhiking.app.androidx-startup"
+104-->[androidx.emoji2:emoji2:1.3.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\e71cb1b199547c81357457e6543fede3\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+105            android:exported="false" >
+105-->[androidx.emoji2:emoji2:1.3.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\e71cb1b199547c81357457e6543fede3\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+106            <meta-data
+106-->[androidx.emoji2:emoji2:1.3.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\e71cb1b199547c81357457e6543fede3\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+107                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+107-->[androidx.emoji2:emoji2:1.3.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\e71cb1b199547c81357457e6543fede3\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+108                android:value="androidx.startup" />
+108-->[androidx.emoji2:emoji2:1.3.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\e71cb1b199547c81357457e6543fede3\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+109            <meta-data
+109-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\samdo\.gradle\caches\8.11.1\transforms\169924408f71ac0128c7df33fe196be4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+110                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+110-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\samdo\.gradle\caches\8.11.1\transforms\169924408f71ac0128c7df33fe196be4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+111                android:value="androidx.startup" />
+111-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\samdo\.gradle\caches\8.11.1\transforms\169924408f71ac0128c7df33fe196be4\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+112            <meta-data
+112-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+113                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+114                android:value="androidx.startup" />
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+115        </provider>
+116
+117        <receiver
+117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+118            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+118-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+119            android:directBootAware="false"
+119-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+120            android:enabled="true"
+120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+121            android:exported="true"
+121-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+122            android:permission="android.permission.DUMP" >
+122-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+123            <intent-filter>
+123-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+124                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+124-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+124-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+125            </intent-filter>
+126            <intent-filter>
+126-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+127                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+127-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+127-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+128            </intent-filter>
+129            <intent-filter>
+129-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+130                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+130-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+130-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+131            </intent-filter>
+132            <intent-filter>
+132-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+133                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+133-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+133-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\samdo\.gradle\caches\8.11.1\transforms\266e208911693cdf13ada0baf48e1323\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+134            </intent-filter>
+135        </receiver>
+136    </application>
+137
+138</manifest>

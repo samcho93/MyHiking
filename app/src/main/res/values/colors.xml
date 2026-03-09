@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#2E7D32</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="primary_light">#4CAF50</color>
+    <color name="accent">#FF6F00</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="background">#FAFAFA</color>
+    <color name="marker_badge">#E53935</color>
+    <color name="marker_border">#FFFFFF</color>
+    <color name="overlay_dark">#80000000</color>
+    <color name="famous100_border">#FFD700</color>
+    <color name="famous100_badge">#FF8F00</color>
+    <color name="famous100_caption">#E65100</color>
+</resources>

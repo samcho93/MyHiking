@@ -1,0 +1,402 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.10 2d4cfc48",
+  "osm3s": {
+    "timestamp_osm_base": "2026-03-09T07:36:59Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 307955533,
+  "lat": 35.3369536,
+  "lon": 127.7305907,
+  "tags": {
+    "ele": "1918",
+    "name": "천왕봉",
+    "name:en": "Cheonwangbong",
+    "name:ko": "천왕봉",
+    "name:ko-Latn": "Cheonwangbong",
+    "name:zh": "天王峰",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 444312062,
+  "lat": 35.3215335,
+  "lon": 127.6755972,
+  "tags": {
+    "ele": "1560",
+    "name": "칠선봉",
+    "name:en": "Chilseonbong",
+    "name:ko": "칠선봉",
+    "name:ko-Latn": "Chilseonbong",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 444312123,
+  "lat": 35.3194225,
+  "lon": 127.6888423,
+  "tags": {
+    "ele": "1668",
+    "name": "영신봉",
+    "name:en": "Yeongsinbong",
+    "name:ko": "영신봉",
+    "name:ko-Latn": "Yeongsinbong",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 444312140,
+  "lat": 35.3151944,
+  "lon": 127.7003829,
+  "tags": {
+    "ele": "1715",
+    "name": "촛대봉",
+    "name:en": "Chotdaebong",
+    "name:ko": "촛대봉",
+    "name:ko-Latn": "Chotdaebong",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 444312648,
+  "lat": 35.3282503,
+  "lon": 127.7111520,
+  "tags": {
+    "ele": "1713",
+    "name": "연하봉",
+    "name:en": "Yeonhabong",
+    "name:ko": "연하봉",
+    "name:ko-Latn": "Yeonhabong",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 444312745,
+  "lat": 35.3354300,
+  "lon": 127.7210500,
+  "tags": {
+    "ele": "1814",
+    "name": "제석봉",
+    "name:en": "Jeseokbong",
+    "name:ko": "제석봉",
+    "name:ko-Latn": "Jeseokbong",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 991642480,
+  "lat": 35.3330606,
+  "lon": 127.7328219,
+  "tags": {
+    "ele": "1676",
+    "name": "개천문",
+    "name:en": "Gaecheonmun",
+    "name:ko": "개천문",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 991643112,
+  "lat": 35.3365305,
+  "lon": 127.7274651,
+  "tags": {
+    "ele": "1823",
+    "name": "통천문",
+    "name:en": "Tongcheonmun",
+    "name:ko": "통천문",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 991644507,
+  "lat": 35.3274920,
+  "lon": 127.6501936,
+  "tags": {
+    "ele": "1442",
+    "name": "1435봉",
+    "name:en": "1435 bong",
+    "name:ko": "1435봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 991645154,
+  "lat": 35.3230499,
+  "lon": 127.6614924,
+  "tags": {
+    "ele": "1522",
+    "name": "덕평봉",
+    "name:en": "Deokpyeongbong",
+    "name:ko": "덕평봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 994238195,
+  "lat": 35.3423917,
+  "lon": 127.7335993,
+  "tags": {
+    "ele": "1875",
+    "name": "중봉",
+    "name:en": "Jungbong",
+    "name:ko": "중봉",
+    "name:ko-Latn": "Jungbong",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 1014152710,
+  "lat": 35.3825113,
+  "lon": 127.6810355,
+  "tags": {
+    "ele": "924.9",
+    "name": "창암산",
+    "name:en": "Changamsan",
+    "name:ko": "창암산",
+    "name:ko-Latn": "Changamsan",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 1032982695,
+  "lat": 35.3429873,
+  "lon": 127.7430088,
+  "tags": {
+    "ele": "1642",
+    "name": "써리봉(정상목)",
+    "name:en": "Sseribong",
+    "name:ko": "써리봉",
+    "name:ko-Latn": "Sseribong",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 1155787394,
+  "lat": 35.3159666,
+  "lon": 127.7655032,
+  "tags": {
+    "ele": "1037.5",
+    "name": "국수봉",
+    "name:en": "Guksubong",
+    "name:ko": "국수봉",
+    "name:ko-Latn": "Guksubong",
+    "natural": "peak",
+    "source": "gps"
+  }
+},
+{
+  "type": "node",
+  "id": 1413946782,
+  "lat": 35.3830519,
+  "lon": 127.7526213,
+  "tags": {
+    "ele": "1322",
+    "name": "새봉",
+    "name:en": "Saegbong",
+    "name:ko": "새봉",
+    "name:ko-Latn": "Saebong",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 2198988949,
+  "lat": 35.3462611,
+  "lon": 127.6989164,
+  "tags": {
+    "ele": "1312",
+    "name": "소지봉",
+    "name:ko": "소지봉",
+    "name:ko-Latn": "Soji-bong",
+    "natural": "peak",
+    "source": "survey",
+    "source:ele": "sign"
+  }
+},
+{
+  "type": "node",
+  "id": 5580602312,
+  "lat": 35.3542863,
+  "lon": 127.7329155,
+  "tags": {
+    "ele": "1754",
+    "name": "하봉",
+    "name:ko": "하봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 9740288475,
+  "lat": 35.3894288,
+  "lon": 127.7911291,
+  "tags": {
+    "comment": "HL/GN-018 SOTA",
+    "ele": "1049",
+    "name": "왕등재",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250318977,
+  "lat": 35.3421200,
+  "lon": 127.7488400,
+  "tags": {
+    "ele": "1586.7",
+    "name": "써리봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250318992,
+  "lat": 35.3396333,
+  "lon": 127.7088778,
+  "tags": {
+    "ele": "1499.1",
+    "name": "소지봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250319548,
+  "lat": 35.3087300,
+  "lon": 127.7018100,
+  "tags": {
+    "ele": "1578",
+    "name": "시루봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250323412,
+  "lat": 35.2936700,
+  "lon": 127.7915400,
+  "tags": {
+    "ele": "868",
+    "name": "원텅이",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250334051,
+  "lat": 35.3606600,
+  "lon": 127.7335700,
+  "tags": {
+    "ele": "1617.4",
+    "name": "두류봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250334052,
+  "lat": 35.3603278,
+  "lon": 127.6694472,
+  "tags": {
+    "ele": "918.2",
+    "name": "오공산",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250334087,
+  "lat": 35.3520400,
+  "lon": 127.7547500,
+  "tags": {
+    "ele": "1479.8",
+    "name": "비둘기봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250336618,
+  "lat": 35.3755300,
+  "lon": 127.6846800,
+  "tags": {
+    "ele": "754",
+    "name": "장구목",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250336652,
+  "lat": 35.3684000,
+  "lon": 127.7282111,
+  "tags": {
+    "ele": "1478.6",
+    "name": "영룡봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250336672,
+  "lat": 35.3643400,
+  "lon": 127.6941500,
+  "tags": {
+    "ele": "961.3",
+    "name": "상재봉",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250339840,
+  "lat": 35.3959028,
+  "lon": 127.7483306,
+  "tags": {
+    "ele": "1213.9",
+    "name": "와불산",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10250357138,
+  "lat": 35.4010600,
+  "lon": 127.7453600,
+  "tags": {
+    "ele": "1117.5",
+    "name": "독바위",
+    "natural": "peak"
+  }
+},
+{
+  "type": "node",
+  "id": 10943599586,
+  "lat": 35.3776437,
+  "lon": 127.7481987,
+  "tags": {
+    "ele": "1301",
+    "name": "1301봉",
+    "natural": "peak"
+  }
+}
+
+  ]
+}

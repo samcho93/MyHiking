@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"ANDROID_HOME=$ANDROID_HOME\")",
+      "Bash(echo \"JAVA_HOME=$JAVA_HOME\")",
+      "Bash(java -version)"
+    ]
+  }
+}
