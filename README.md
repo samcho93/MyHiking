@@ -273,7 +273,7 @@ app/build/outputs/apk/debug/app-debug.apk
 
 | 항목 | 내용 |
 |------|------|
-| **총 산 수** | 5,897개 |
+| **총 산 수** | 5,909개 |
 | **데이터 소스** | OpenStreetMap (Overpass API) + 수동 보정 |
 | **파일** | `app/src/main/assets/mountains.json` |
 | **데이터 형식** | JSON 배열 |
