@@ -38,6 +38,9 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
     private val _rescanResult = MutableLiveData<Int?>()
     val rescanResult: LiveData<Int?> = _rescanResult
 
+    private val _scanStatus = MutableLiveData<String?>()
+    val scanStatus: LiveData<String?> = _scanStatus
+
     fun loadPhotosAndMatch() {
         viewModelScope.launch {
             _isLoading.value = true
@@ -61,7 +64,17 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
                 }
 
                 // 3. 증분 스캔 (새 사진만 EXIF 파싱)
-                val newPhotos = photoRepository.scanGeotaggedPhotos(excludeIds = cachedPhotoIds)
+                val scanFolders = matchingCache.getScanFolders()
+                val newPhotos = photoRepository.scanGeotaggedPhotos(
+                    excludeIds = cachedPhotoIds,
+                    allowedFolders = scanFolders,
+                    onProgress = { folder, scanned, found ->
+                        _scanStatus.postValue(
+                            if (folder.isNotEmpty()) "$folder (${scanned}장 검사, ${found}장 발견)"
+                            else null
+                        )
+                    }
+                )
 
                 // 4. 삭제된 사진 감지
                 val currentMediaIds = photoRepository.getAllPhotoIds()
@@ -230,7 +243,17 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
                 val excludedIds = matchingCache.getExcludedPhotoIds()
 
                 // 증분 스캔 (새 사진만)
-                val newPhotos = photoRepository.scanGeotaggedPhotos(excludeIds = cachedPhotoIds)
+                val scanFolders = matchingCache.getScanFolders()
+                val newPhotos = photoRepository.scanGeotaggedPhotos(
+                    excludeIds = cachedPhotoIds,
+                    allowedFolders = scanFolders,
+                    onProgress = { folder, scanned, found ->
+                        _scanStatus.postValue(
+                            if (folder.isNotEmpty()) "$folder (${scanned}장 검사, ${found}장 발견)"
+                            else null
+                        )
+                    }
+                )
 
                 // 삭제된 사진 감지
                 val currentMediaIds = photoRepository.getAllPhotoIds()
@@ -269,6 +292,38 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
 
     fun clearRescanResult() {
         _rescanResult.value = null
+    }
+
+    /**
+     * 기기의 모든 사진 폴더 목록 조회 (폴더명, 사진 수)
+     */
+    fun loadPhotoFolders(callback: (List<Pair<String, Int>>) -> Unit) {
+        viewModelScope.launch {
+            val folders = photoRepository.getPhotoFolders()
+            callback(folders)
+        }
+    }
+
+    /**
+     * 현재 저장된 스캔 폴더 설정 로드
+     */
+    fun loadScanFolders(callback: (Set<String>?) -> Unit) {
+        viewModelScope.launch {
+            val folders = matchingCache.getScanFolders()
+            callback(folders)
+        }
+    }
+
+    /**
+     * 스캔 대상 폴더 저장 후 캐시 초기화 및 전체 재스캔
+     */
+    fun saveScanFoldersAndRescan(folders: Set<String>) {
+        viewModelScope.launch {
+            matchingCache.saveScanFolders(folders)
+            // 캐시 초기화 후 전체 재스캔
+            matchingCache.saveCachedPhotos(emptyList())
+            loadPhotosAndMatch()
+        }
     }
 
     fun findNearbyMountains(lat: Double, lng: Double): List<Pair<Mountain, Double>> {

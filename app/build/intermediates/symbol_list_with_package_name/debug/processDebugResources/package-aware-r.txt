@@ -3188,6 +3188,7 @@ drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_close
+drawable ic_folder
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3523,6 +3524,7 @@ id escape
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fabFolderSelect
 id fabRescan
 id fabSwitchMap
 id fade
@@ -3879,6 +3881,7 @@ id tvPhotoInfo
 id tvPhotoName
 id tvReassignInfo
 id tvReassignTitle
+id tvScanStatus
 id tvStatus
 id unchecked
 id uniform
@@ -4206,6 +4209,10 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string drag_confirm_message
+string drag_confirm_title
+string drag_hint
+string drag_no_target
 string error_a11y_label
 string error_icon_content_description
 string exclude_all_confirm
@@ -4213,6 +4220,13 @@ string exclude_all_done
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string folder_all_applied
+string folder_applied
+string folder_select
+string folder_select_all
+string folder_select_info
+string folder_select_none
+string folder_select_title
 string grant_permission
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description

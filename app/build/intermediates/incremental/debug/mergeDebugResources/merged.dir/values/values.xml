@@ -2076,6 +2076,10 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="drag_confirm_message">사진 %1$d장을 %2$s에서 %3$s(%4$s)(으)로 이동하시겠습니까?</string>
+    <string name="drag_confirm_title">마커 이동 확인</string>
+    <string name="drag_hint">%s 마커를 이동할 산으로 드래그하세요</string>
+    <string name="drag_no_target">근처에 이동할 수 있는 산이 없습니다</string>
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
   </string>
@@ -2085,6 +2089,13 @@
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="folder_all_applied">전체 폴더 스캔으로 변경. 재스캔합니다…</string>
+    <string name="folder_applied">%d개 폴더 선택됨. 재스캔합니다…</string>
+    <string name="folder_select">스캔 폴더 선택</string>
+    <string name="folder_select_all">전체 선택</string>
+    <string name="folder_select_info">선택된 폴더의 사진만 스캔합니다.\n해제 시 전체 폴더를 스캔합니다.</string>
+    <string name="folder_select_none">전체 해제</string>
+    <string name="folder_select_title">스캔할 폴더 선택</string>
     <string name="grant_permission">권한 허용</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>

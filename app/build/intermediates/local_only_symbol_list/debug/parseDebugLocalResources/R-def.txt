@@ -28,6 +28,7 @@ drawable bg_marker_frame_famous
 drawable bg_photo_count_badge
 drawable bg_photo_count_badge_famous
 drawable ic_close
+drawable ic_folder
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mountain_default
@@ -40,6 +41,7 @@ id btnCloseViewer
 id btnMove
 id btnPermission
 id cbLocationView
+id fabFolderSelect
 id fabRescan
 id fabSwitchMap
 id ivFullPhoto
@@ -65,6 +67,7 @@ id tvPhotoInfo
 id tvPhotoName
 id tvReassignInfo
 id tvReassignTitle
+id tvScanStatus
 id tvStatus
 layout activity_main
 layout activity_map
@@ -92,8 +95,19 @@ string altitude_format
 string app_name
 string back
 string close
+string drag_confirm_message
+string drag_confirm_title
+string drag_hint
+string drag_no_target
 string exclude_all_confirm
 string exclude_all_done
+string folder_all_applied
+string folder_applied
+string folder_select
+string folder_select_all
+string folder_select_info
+string folder_select_none
+string folder_select_title
 string grant_permission
 string loading_photos
 string location_view_label

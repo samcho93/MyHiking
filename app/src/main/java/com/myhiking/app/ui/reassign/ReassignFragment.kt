@@ -31,6 +31,8 @@ class ReassignFragment : BottomSheetDialogFragment() {
 
     // 공통
     private var nearbyMountains: List<Pair<Mountain, Double>> = emptyList()
+    private var onDismissWithoutSelection: (() -> Unit)? = null
+    private var didSelectTarget = false
 
     companion object {
         const val TAG = "ReassignFragment"
@@ -45,6 +47,8 @@ class ReassignFragment : BottomSheetDialogFragment() {
         private var pendingPhotoMountainName: String? = null
         private var pendingPhotoCallback: ((Long, Int) -> Unit)? = null
 
+        private var pendingDismissCallback: (() -> Unit)? = null
+
         private fun clearPending() {
             pendingData = null
             pendingNearby = null
@@ -52,6 +56,7 @@ class ReassignFragment : BottomSheetDialogFragment() {
             pendingPhoto = null
             pendingPhotoMountainName = null
             pendingPhotoCallback = null
+            pendingDismissCallback = null
         }
 
         /**
@@ -87,6 +92,14 @@ class ReassignFragment : BottomSheetDialogFragment() {
         }
     }
 
+    /**
+     * 선택 없이 dismiss 시 호출할 콜백 설정 (드래그 snap-back 용)
+     * show() 전에 호출해야 함
+     */
+    fun setOnDismissWithoutSelectionListener(listener: () -> Unit) {
+        pendingDismissCallback = listener
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mountainWithPhotos = pendingData
@@ -95,6 +108,7 @@ class ReassignFragment : BottomSheetDialogFragment() {
         nearbyMountains = pendingNearby ?: emptyList()
         onReassign = pendingCallback
         onPhotoReassign = pendingPhotoCallback
+        onDismissWithoutSelection = pendingDismissCallback
         clearPending()
     }
 
@@ -136,6 +150,7 @@ class ReassignFragment : BottomSheetDialogFragment() {
         // 근처 산 목록 (현재 산 제외)
         val filteredNearby = nearbyMountains.filter { it.first.id != mtn.mountain.id }
         showNearbyMountains(filteredNearby) { targetMountain ->
+            didSelectTarget = true
             onReassign?.invoke(mtn, targetMountain.id)
             Toast.makeText(
                 requireContext(),
@@ -163,6 +178,7 @@ class ReassignFragment : BottomSheetDialogFragment() {
 
         // 근처 산 목록 표시
         showNearbyMountains(nearbyMountains.toList()) { targetMountain ->
+            didSelectTarget = true
             onPhotoReassign?.invoke(photo.id, targetMountain.id)
             Toast.makeText(
                 requireContext(),
@@ -184,6 +200,13 @@ class ReassignFragment : BottomSheetDialogFragment() {
         binding.rvNearbyMountains.visibility = View.VISIBLE
         binding.rvNearbyMountains.layoutManager = LinearLayoutManager(requireContext())
         binding.rvNearbyMountains.adapter = MountainAdapter(mountains, onSelect)
+    }
+
+    override fun onDismiss(dialog: android.content.DialogInterface) {
+        super.onDismiss(dialog)
+        if (!didSelectTarget) {
+            onDismissWithoutSelection?.invoke()
+        }
     }
 
     override fun onDestroyView() {

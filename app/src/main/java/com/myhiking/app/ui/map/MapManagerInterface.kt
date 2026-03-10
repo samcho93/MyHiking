@@ -34,6 +34,24 @@ interface MapManagerInterface {
      */
     fun setOnEmptyMapLongClickListener(listener: (Double, Double) -> Unit)
 
+    /**
+     * 마커 드래그 리스너 설정
+     */
+    fun setOnMarkerDragListener(listener: OnMarkerDragResultListener?)
+
+    /**
+     * 마커를 원래 위치로 되돌리기 (드래그 취소 시)
+     */
+    fun snapMarkerBack(mountain: MountainWithPhotos)
+
+    /**
+     * 마커 드래그 결과 리스너
+     */
+    interface OnMarkerDragResultListener {
+        fun onDragStart(mountain: MountainWithPhotos)
+        fun onDragEnd(mountain: MountainWithPhotos, dropLat: Double, dropLng: Double)
+    }
+
     interface OnMapReadyCallback {
         fun onMapReady()
     }

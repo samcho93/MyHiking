@@ -1,6 +1,6 @@
 package com.myhiking.app.data.repository;
 
-@kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\"\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u00172\u00020\u0001:\u0002\u0017\u0018B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006H\u0086@\u00a2\u0006\u0002\u0010\bJ\u001e\u0010\t\u001a\u0004\u0018\u00010\n2\u0006\u0010\u000b\u001a\u00020\f2\n\b\u0002\u0010\r\u001a\u0004\u0018\u00010\u000eH\u0002J\u0012\u0010\u000f\u001a\u0004\u0018\u00010\n2\u0006\u0010\u000b\u001a\u00020\fH\u0002J$\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00120\u00112\u000e\b\u0002\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006H\u0086@\u00a2\u0006\u0002\u0010\u0014J\"\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\u00120\u00112\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006H\u0086@\u00a2\u0006\u0002\u0010\u0014R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0019"}, d2 = {"Lcom/myhiking/app/data/repository/PhotoRepository;", "", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "getAllPhotoIds", "", "", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getPhotoGeoInfo", "Lcom/myhiking/app/data/repository/PhotoRepository$PhotoGeoInfo;", "uri", "Landroid/net/Uri;", "filePath", "", "readExifGps", "scanGeotaggedPhotos", "", "Lcom/myhiking/app/data/model/DevicePhoto;", "excludeIds", "(Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "scanPhotosByIds", "ids", "Companion", "PhotoGeoInfo", "app_debug"})
+@kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\"\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0007\u0018\u0000 %2\u00020\u0001:\u0002%&B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0012\u0010\u0005\u001a\u00020\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\u0006H\u0002J\u0014\u0010\b\u001a\b\u0012\u0004\u0012\u00020\n0\tH\u0086@\u00a2\u0006\u0002\u0010\u000bJ \u0010\f\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u000f0\u000e0\rH\u0086@\u00a2\u0006\u0002\u0010\u000bJ\u001e\u0010\u0010\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0012\u001a\u00020\u00132\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u0006H\u0002J\u0012\u0010\u0014\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0012\u001a\u00020\u0013H\u0002J\u0087\u0001\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\u00160\r2\u000e\b\u0002\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\n0\t2\u0010\b\u0002\u0010\u0018\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\t2O\b\u0002\u0010\u0019\u001aI\u0012\u0013\u0012\u00110\u0006\u00a2\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(\u001d\u0012\u0013\u0012\u00110\u000f\u00a2\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(\u001e\u0012\u0013\u0012\u00110\u000f\u00a2\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(\u001f\u0012\u0004\u0012\u00020 \u0018\u00010\u001aH\u0086@\u00a2\u0006\u0002\u0010!J\"\u0010\"\u001a\b\u0012\u0004\u0012\u00020\u00160\r2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020\n0\tH\u0086@\u00a2\u0006\u0002\u0010$R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\'"}, d2 = {"Lcom/myhiking/app/data/repository/PhotoRepository;", "", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "extractFolder", "", "filePath", "getAllPhotoIds", "", "", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getPhotoFolders", "", "Lkotlin/Pair;", "", "getPhotoGeoInfo", "Lcom/myhiking/app/data/repository/PhotoRepository$PhotoGeoInfo;", "uri", "Landroid/net/Uri;", "readExifGps", "scanGeotaggedPhotos", "Lcom/myhiking/app/data/model/DevicePhoto;", "excludeIds", "allowedFolders", "onProgress", "Lkotlin/Function3;", "Lkotlin/ParameterName;", "name", "folder", "scanned", "found", "", "(Ljava/util/Set;Ljava/util/Set;Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "scanPhotosByIds", "ids", "(Ljava/util/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Companion", "PhotoGeoInfo", "app_debug"})
 public final class PhotoRepository {
     @org.jetbrains.annotations.NotNull()
     private final android.content.Context context = null;
@@ -15,13 +15,26 @@ public final class PhotoRepository {
     }
     
     /**
+     * 기기의 모든 사진 폴더 목록 조회 (폴더명 → 사진 수)
+     */
+    @org.jetbrains.annotations.Nullable()
+    public final java.lang.Object getPhotoFolders(@org.jetbrains.annotations.NotNull()
+    kotlin.coroutines.Continuation<? super java.util.List<kotlin.Pair<java.lang.String, java.lang.Integer>>> $completion) {
+        return null;
+    }
+    
+    /**
      * 기기 사진 스캔. excludeIds에 있는 사진은 EXIF 파싱을 건너뜀 (증분 스캔)
      * @param excludeIds 이미 캐시된 사진 ID (EXIF 파싱 생략)
+     * @param allowedFolders 스캔할 폴더 목록 (null이면 전체 스캔)
+     * @param onProgress 스캔 진행 상태 콜백 (폴더명, 스캔 건수, GPS 발견 건수)
      * @return 새로 스캔된 사진만 반환 (캐시된 사진 제외)
      */
     @org.jetbrains.annotations.Nullable()
     public final java.lang.Object scanGeotaggedPhotos(@org.jetbrains.annotations.NotNull()
-    java.util.Set<java.lang.Long> excludeIds, @org.jetbrains.annotations.NotNull()
+    java.util.Set<java.lang.Long> excludeIds, @org.jetbrains.annotations.Nullable()
+    java.util.Set<java.lang.String> allowedFolders, @org.jetbrains.annotations.Nullable()
+    kotlin.jvm.functions.Function3<? super java.lang.String, ? super java.lang.Integer, ? super java.lang.Integer, kotlin.Unit> onProgress, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super java.util.List<com.myhiking.app.data.model.DevicePhoto>> $completion) {
         return null;
     }
@@ -57,6 +70,14 @@ public final class PhotoRepository {
      * @param filePath MediaStore DATA 컬럼의 파일 경로 (nullable)
      */
     private final com.myhiking.app.data.repository.PhotoRepository.PhotoGeoInfo getPhotoGeoInfo(android.net.Uri uri, java.lang.String filePath) {
+        return null;
+    }
+    
+    /**
+     * 파일 경로에서 상위 폴더명 추출
+     * 예: /storage/emulated/0/DCIM/Camera/IMG.jpg → DCIM/Camera
+     */
+    private final java.lang.String extractFolder(java.lang.String filePath) {
         return null;
     }
     

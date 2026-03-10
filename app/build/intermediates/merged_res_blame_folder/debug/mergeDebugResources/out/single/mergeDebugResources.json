@@ -8,10 +8,6 @@
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.myhiking.app-debug-47:/drawable_ic_refresh.xml.flat",
-        "source": "com.myhiking.app-main-49:/drawable/ic_refresh.xml"
-    },
-    {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_view_stacked_marker.xml.flat",
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_stacked_marker.xml"
     },
@@ -26,6 +22,10 @@
     {
         "merged": "com.myhiking.app-debug-47:/layout_activity_map.xml.flat",
         "source": "com.myhiking.app-main-49:/layout/activity_map.xml"
+    },
+    {
+        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_ic_refresh.xml.flat",
+        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\ic_refresh.xml"
     },
     {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_activity_main.xml.flat",
@@ -54,6 +54,10 @@
     {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_item_reassign_photo.xml.flat",
         "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\item_reassign_photo.xml"
+    },
+    {
+        "merged": "com.myhiking.app-debug-47:/drawable_ic_folder.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/ic_folder.xml"
     },
     {
         "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_activity_map.xml.flat",

@@ -1,11 +1,15 @@
 package com.myhiking.app.ui.map
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.PointF
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
 import com.myhiking.app.R
@@ -13,7 +17,6 @@ import com.myhiking.app.data.model.DevicePhoto
 import com.myhiking.app.data.model.MountainWithPhotos
 import com.myhiking.app.data.source.Famous100Mountains
 import com.myhiking.app.util.BitmapUtils
-import androidx.core.content.ContextCompat
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.geometry.LatLngBounds
 import com.naver.maps.map.CameraUpdate
@@ -36,6 +39,13 @@ class NaverMapManager(private val context: Context) : MapManagerInterface {
     private var markerLongClickListener: ((MountainWithPhotos) -> Unit)? = null
     private var emptyMapLongClickListener: ((Double, Double) -> Unit)? = null
     private val markerMountainMap = mutableMapOf<Marker, MountainWithPhotos>()
+    private var markerDragListener: MapManagerInterface.OnMarkerDragResultListener? = null
+    private val markerOriginalPositions = mutableMapOf<Marker, LatLng>()
+
+    // Custom drag state (네이버 SDK는 네이티브 마커 드래그 미지원)
+    private var isDragMode = false
+    private var dragMarker: Marker? = null
+    private var dragMountain: MountainWithPhotos? = null
 
     companion object {
         private const val MAP_FRAGMENT_TAG = "naver_map"
@@ -45,8 +55,13 @@ class NaverMapManager(private val context: Context) : MapManagerInterface {
             LatLng(33.0, 124.5),
             LatLng(38.6, 131.9)
         )
+        /** 마커 직접 터치 판정 (dp) — 이 범위 내 롱프레스 시 드래그 시작 */
+        private const val DRAG_DIRECT_DP = 30f
+        /** 마커 근처 터치 판정 (dp) — 이 범위 내 롱프레스 시 액션 메뉴 */
+        private const val MARKER_NEAR_DP = 50f
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun initialize(
         container: ViewGroup,
         fragmentManager: FragmentManager,
@@ -67,21 +82,83 @@ class NaverMapManager(private val context: Context) : MapManagerInterface {
             map.uiSettings.isZoomControlEnabled = true
             map.uiSettings.isCompassEnabled = true
 
-            // Long-press: 마커가 가까이 있으면 마커 롱프레스, 없으면 빈 지도 롱프레스
+            // Long-press: 드래그 시작 / 액션 메뉴 / 빈 지도 메뉴
             map.setOnMapLongClickListener { _, latLng ->
-                val nearestMtn = findNearestMarkerMountain(latLng)
-                if (nearestMtn != null) {
-                    markerLongClickListener?.invoke(nearestMtn)
+                if (isDragMode) return@setOnMapLongClickListener
+
+                val density = context.resources.displayMetrics.density
+                val directPx = DRAG_DIRECT_DP * density
+                val nearPx = MARKER_NEAR_DP * density
+
+                val info = findNearestMarkerInfo(latLng, nearPx)
+                if (info != null) {
+                    if (info.distPx <= directPx && markerDragListener != null) {
+                        // 마커 위 직접 롱프레스 → 드래그 시작
+                        isDragMode = true
+                        dragMarker = info.marker
+                        dragMountain = info.mountain
+                        map.uiSettings.isScrollGesturesEnabled = false
+                        map.uiSettings.isZoomGesturesEnabled = false
+                        markerDragListener?.onDragStart(info.mountain)
+                    } else {
+                        // 마커 근처 롱프레스 → 액션 메뉴
+                        markerLongClickListener?.invoke(info.mountain)
+                    }
                 } else {
                     emptyMapLongClickListener?.invoke(latLng.latitude, latLng.longitude)
                 }
+            }
+
+            // 터치 리스너: 드래그 모드에서 마커 위치 실시간 갱신
+            mapFragment?.view?.setOnTouchListener { _, event ->
+                if (!isDragMode) return@setOnTouchListener false
+                when (event.action) {
+                    MotionEvent.ACTION_MOVE -> {
+                        val projection = naverMap?.projection
+                            ?: return@setOnTouchListener true
+                        val latLng = projection.fromScreenLocation(
+                            PointF(event.x, event.y)
+                        )
+                        dragMarker?.position = latLng
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        val projection = naverMap?.projection
+                        val marker = dragMarker
+                        val mountain = dragMountain
+                        if (projection != null && marker != null && mountain != null) {
+                            val latLng = projection.fromScreenLocation(
+                                PointF(event.x, event.y)
+                            )
+                            marker.position = latLng
+                            markerDragListener?.onDragEnd(
+                                mountain, latLng.latitude, latLng.longitude
+                            )
+                        }
+                        endDragMode()
+                    }
+                    MotionEvent.ACTION_CANCEL -> {
+                        dragMountain?.let { snapMarkerBack(it) }
+                        endDragMode()
+                    }
+                }
+                true // 드래그 모드 중 이벤트 소비
             }
 
             callback.onMapReady()
         }
     }
 
+    /** 드래그 모드 종료 — 지도 제스처 복원 */
+    private fun endDragMode() {
+        isDragMode = false
+        dragMarker = null
+        dragMountain = null
+        naverMap?.uiSettings?.isScrollGesturesEnabled = true
+        naverMap?.uiSettings?.isZoomGesturesEnabled = true
+    }
+
     override fun destroy(fragmentManager: FragmentManager) {
+        endDragMode()
         clearMarkers()
         mapFragment?.let {
             fragmentManager.beginTransaction().remove(it).commitAllowingStateLoss()
@@ -119,6 +196,7 @@ class NaverMapManager(private val context: Context) : MapManagerInterface {
             }
             markers.add(marker)
             markerMountainMap[marker] = mtn
+            markerOriginalPositions[marker] = marker.position
 
             // Load thumbnail asynchronously then update marker icon
             loadMarkerThumbnail(mtn, marker)
@@ -210,6 +288,7 @@ class NaverMapManager(private val context: Context) : MapManagerInterface {
         markers.forEach { it.map = null }
         markers.clear()
         markerMountainMap.clear()
+        markerOriginalPositions.clear()
     }
 
     override fun moveCamera(lat: Double, lng: Double, zoom: Float) {
@@ -237,17 +316,41 @@ class NaverMapManager(private val context: Context) : MapManagerInterface {
         emptyMapLongClickListener = listener
     }
 
+    override fun setOnMarkerDragListener(listener: MapManagerInterface.OnMarkerDragResultListener?) {
+        markerDragListener = listener
+    }
+
+    override fun snapMarkerBack(mountain: MountainWithPhotos) {
+        for ((marker, mtn) in markerMountainMap) {
+            if (mtn.mountain.id == mountain.mountain.id) {
+                val originalPos = markerOriginalPositions[marker]
+                if (originalPos != null) {
+                    marker.position = originalPos
+                }
+                break
+            }
+        }
+    }
+
     /**
-     * 지도 좌표에서 가장 가까운 마커의 산 정보 반환 (long-press 감지용)
-     * 화면상 50dp 이내의 마커만 대상
+     * 가장 가까운 마커 정보 반환 (마커, 산 데이터, 화면 거리 px)
      */
-    private fun findNearestMarkerMountain(tapLatLng: LatLng): MountainWithPhotos? {
+    private data class NearestMarkerInfo(
+        val marker: Marker,
+        val mountain: MountainWithPhotos,
+        val distPx: Float
+    )
+
+    /**
+     * 지도 좌표에서 가장 가까운 마커 검색
+     * @param thresholdPx 이 거리(px) 이내의 마커만 대상
+     */
+    private fun findNearestMarkerInfo(tapLatLng: LatLng, thresholdPx: Float): NearestMarkerInfo? {
         val projection = naverMap?.projection ?: return null
         val tapPoint = projection.toScreenLocation(tapLatLng)
 
-        var nearestMtn: MountainWithPhotos? = null
+        var nearest: NearestMarkerInfo? = null
         var minDist = Float.MAX_VALUE
-        val thresholdPx = 50 * context.resources.displayMetrics.density
 
         for ((marker, mtn) in markerMountainMap) {
             val markerPoint = projection.toScreenLocation(marker.position)
@@ -256,9 +359,9 @@ class NaverMapManager(private val context: Context) : MapManagerInterface {
             val dist = kotlin.math.sqrt((dx * dx + dy * dy).toDouble()).toFloat()
             if (dist < minDist && dist < thresholdPx) {
                 minDist = dist
-                nearestMtn = mtn
+                nearest = NearestMarkerInfo(marker, mtn, dist)
             }
         }
-        return nearestMtn
+        return nearest
     }
 }

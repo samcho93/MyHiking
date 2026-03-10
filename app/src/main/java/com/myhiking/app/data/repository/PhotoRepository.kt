@@ -24,12 +24,48 @@ class PhotoRepository(private val context: Context) {
     )
 
     /**
+     * 기기의 모든 사진 폴더 목록 조회 (폴더명 → 사진 수)
+     */
+    suspend fun getPhotoFolders(): List<Pair<String, Int>> = withContext(Dispatchers.IO) {
+        val folderCounts = mutableMapOf<String, Int>()
+
+        val collection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
+        } else {
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        }
+
+        context.contentResolver.query(
+            collection,
+            arrayOf(MediaStore.Images.Media.DATA),
+            null, null, null
+        )?.use { cursor ->
+            val dataCol = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
+            if (dataCol < 0) return@use
+
+            while (cursor.moveToNext()) {
+                val filePath = cursor.getString(dataCol) ?: continue
+                val folder = extractFolder(filePath)
+                folderCounts[folder] = (folderCounts[folder] ?: 0) + 1
+            }
+        }
+
+        folderCounts.entries
+            .sortedByDescending { it.value }
+            .map { it.key to it.value }
+    }
+
+    /**
      * 기기 사진 스캔. excludeIds에 있는 사진은 EXIF 파싱을 건너뜀 (증분 스캔)
      * @param excludeIds 이미 캐시된 사진 ID (EXIF 파싱 생략)
+     * @param allowedFolders 스캔할 폴더 목록 (null이면 전체 스캔)
+     * @param onProgress 스캔 진행 상태 콜백 (폴더명, 스캔 건수, GPS 발견 건수)
      * @return 새로 스캔된 사진만 반환 (캐시된 사진 제외)
      */
     suspend fun scanGeotaggedPhotos(
-        excludeIds: Set<Long> = emptySet()
+        excludeIds: Set<Long> = emptySet(),
+        allowedFolders: Set<String>? = null,
+        onProgress: ((folder: String, scanned: Int, found: Int) -> Unit)? = null
     ): List<DevicePhoto> = withContext(Dispatchers.IO) {
         val photos = mutableListOf<DevicePhoto>()
 
@@ -52,6 +88,7 @@ class PhotoRepository(private val context: Context) {
         var totalScanned = 0
         var gpsFound = 0
         var gpsFailed = 0
+        var lastFolder = ""
 
         context.contentResolver.query(
             collection, projection, null, null, sortOrder
@@ -74,6 +111,16 @@ class PhotoRepository(private val context: Context) {
                 val dateTaken = cursor.getLong(dateCol)
                 val size = cursor.getLong(sizeCol)
                 val filePath = if (dataCol >= 0) cursor.getString(dataCol) else null
+
+                // 현재 폴더 추출 및 진행 상황 보고
+                val currentFolder = extractFolder(filePath)
+                if (currentFolder != lastFolder) {
+                    lastFolder = currentFolder
+                    onProgress?.invoke(currentFolder, totalScanned, gpsFound)
+                }
+
+                // 허용된 폴더가 아니면 건너뛰기
+                if (allowedFolders != null && currentFolder !in allowedFolders) continue
 
                 val contentUri = ContentUris.withAppendedId(
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id
@@ -99,6 +146,9 @@ class PhotoRepository(private val context: Context) {
                 }
             }
         }
+
+        // 스캔 완료 시 최종 상태 보고
+        onProgress?.invoke("", totalScanned, gpsFound)
 
         Log.i(TAG, "스캔 완료: 총 ${totalScanned}장 검사, GPS 발견 ${gpsFound}장, GPS 없음 ${gpsFailed}장")
         photos
@@ -247,6 +297,24 @@ class PhotoRepository(private val context: Context) {
         }
 
         return null
+    }
+
+    /**
+     * 파일 경로에서 상위 폴더명 추출
+     * 예: /storage/emulated/0/DCIM/Camera/IMG.jpg → DCIM/Camera
+     */
+    private fun extractFolder(filePath: String?): String {
+        if (filePath.isNullOrBlank()) return "알 수 없음"
+        val file = java.io.File(filePath)
+        val parent = file.parentFile ?: return "알 수 없음"
+        // /storage/emulated/0/ 이후 경로만 추출
+        val fullPath = parent.absolutePath
+        val storagePrefix = "/storage/emulated/0/"
+        return if (fullPath.startsWith(storagePrefix)) {
+            fullPath.removePrefix(storagePrefix)
+        } else {
+            parent.name
+        }
     }
 
     /**

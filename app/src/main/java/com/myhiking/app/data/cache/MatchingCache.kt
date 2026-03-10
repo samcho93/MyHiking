@@ -18,6 +18,7 @@ class MatchingCache(private val context: Context) {
         private const val KEY_USER_OVERRIDES = "userOverrides"
         private const val KEY_EXCLUDED_PHOTOS = "excludedPhotos"
         private const val KEY_LAST_SCAN = "lastScanTimestamp"
+        private const val KEY_SCAN_FOLDERS = "scanFolders"
     }
 
     private fun getCacheFile(): File = File(context.filesDir, CACHE_FILE)
@@ -204,6 +205,32 @@ class MatchingCache(private val context: Context) {
             try { ids.add(excluded.getLong(i)) } catch (_: Exception) {}
         }
         ids
+    }
+
+    /**
+     * 스캔 대상 폴더 목록 저장 (빈 목록이면 전체 스캔)
+     */
+    suspend fun saveScanFolders(folders: Set<String>) = withContext(Dispatchers.IO) {
+        val json = readCacheJson()
+        val arr = JSONArray()
+        for (folder in folders) {
+            arr.put(folder)
+        }
+        json.put(KEY_SCAN_FOLDERS, arr)
+        writeCacheJson(json)
+    }
+
+    /**
+     * 스캔 대상 폴더 목록 로드 (null이면 설정 안 됨 = 전체 스캔)
+     */
+    suspend fun getScanFolders(): Set<String>? = withContext(Dispatchers.IO) {
+        val json = readCacheJson()
+        val arr = json.optJSONArray(KEY_SCAN_FOLDERS) ?: return@withContext null
+        val folders = mutableSetOf<String>()
+        for (i in 0 until arr.length()) {
+            arr.optString(i)?.let { if (it.isNotBlank()) folders.add(it) }
+        }
+        if (folders.isEmpty()) null else folders
     }
 
     /**

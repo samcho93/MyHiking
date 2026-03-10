@@ -33,6 +33,9 @@ class GoogleMapManager(private val context: Context) : MapManagerInterface {
     private var markerLongClickListener: ((MountainWithPhotos) -> Unit)? = null
     private var emptyMapLongClickListener: ((Double, Double) -> Unit)? = null
     private val markerDataMap = mutableMapOf<String, MountainWithPhotos>()
+    private var markerDragListener: MapManagerInterface.OnMarkerDragResultListener? = null
+    private val markerOriginalPositions = mutableMapOf<String, LatLng>()
+    private val markerObjectMap = mutableMapOf<String, com.google.android.gms.maps.model.Marker>()
 
     companion object {
         private const val MAP_FRAGMENT_TAG = "google_map"
@@ -73,6 +76,20 @@ class GoogleMapManager(private val context: Context) : MapManagerInterface {
                 }
             }
 
+            // 마커 드래그 리스너
+            map.setOnMarkerDragListener(object : GoogleMap.OnMarkerDragListener {
+                override fun onMarkerDragStart(marker: com.google.android.gms.maps.model.Marker) {
+                    val mtn = markerDataMap[marker.id] ?: return
+                    markerDragListener?.onDragStart(mtn)
+                }
+                override fun onMarkerDrag(marker: com.google.android.gms.maps.model.Marker) { /* SDK가 처리 */ }
+                override fun onMarkerDragEnd(marker: com.google.android.gms.maps.model.Marker) {
+                    val mtn = markerDataMap[marker.id] ?: return
+                    val pos = marker.position
+                    markerDragListener?.onDragEnd(mtn, pos.latitude, pos.longitude)
+                }
+            })
+
             callback.onMapReady()
         }
     }
@@ -103,10 +120,13 @@ class GoogleMapManager(private val context: Context) : MapManagerInterface {
             val markerOptions = MarkerOptions()
                 .position(LatLng(mtn.mountain.latitude, mtn.mountain.longitude))
                 .title(displayName)
+                .draggable(true)
 
             val marker = map.addMarker(markerOptions)
             if (marker != null) {
                 markerDataMap[marker.id] = mtn
+                markerOriginalPositions[marker.id] = marker.position
+                markerObjectMap[marker.id] = marker
 
                 // Load thumbnail asynchronously
                 CoroutineScope(Dispatchers.IO).launch {
@@ -186,6 +206,8 @@ class GoogleMapManager(private val context: Context) : MapManagerInterface {
     override fun clearMarkers() {
         googleMap?.clear()
         markerDataMap.clear()
+        markerOriginalPositions.clear()
+        markerObjectMap.clear()
     }
 
     override fun moveCamera(lat: Double, lng: Double, zoom: Float) {
@@ -212,6 +234,23 @@ class GoogleMapManager(private val context: Context) : MapManagerInterface {
 
     override fun setOnEmptyMapLongClickListener(listener: (Double, Double) -> Unit) {
         emptyMapLongClickListener = listener
+    }
+
+    override fun setOnMarkerDragListener(listener: MapManagerInterface.OnMarkerDragResultListener?) {
+        markerDragListener = listener
+    }
+
+    override fun snapMarkerBack(mountain: MountainWithPhotos) {
+        for ((markerId, mtn) in markerDataMap) {
+            if (mtn.mountain.id == mountain.mountain.id) {
+                val originalPos = markerOriginalPositions[markerId]
+                val markerObj = markerObjectMap[markerId]
+                if (originalPos != null && markerObj != null) {
+                    markerObj.position = originalPos
+                }
+                break
+            }
+        }
     }
 
     private fun findNearestMarkerMountain(tapLatLng: LatLng): MountainWithPhotos? {

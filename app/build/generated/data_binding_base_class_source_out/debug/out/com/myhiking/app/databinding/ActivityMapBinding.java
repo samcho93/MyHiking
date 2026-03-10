@@ -27,6 +27,9 @@ public final class ActivityMapBinding implements ViewBinding {
   public final CheckBox cbLocationView;
 
   @NonNull
+  public final FloatingActionButton fabFolderSelect;
+
+  @NonNull
   public final FloatingActionButton fabRescan;
 
   @NonNull
@@ -41,17 +44,23 @@ public final class ActivityMapBinding implements ViewBinding {
   @NonNull
   public final TextView tvMapProvider;
 
+  @NonNull
+  public final TextView tvScanStatus;
+
   private ActivityMapBinding(@NonNull ConstraintLayout rootView, @NonNull CheckBox cbLocationView,
-      @NonNull FloatingActionButton fabRescan, @NonNull FloatingActionButton fabSwitchMap,
-      @NonNull FrameLayout mapContainer, @NonNull ProgressBar mapProgressBar,
-      @NonNull TextView tvMapProvider) {
+      @NonNull FloatingActionButton fabFolderSelect, @NonNull FloatingActionButton fabRescan,
+      @NonNull FloatingActionButton fabSwitchMap, @NonNull FrameLayout mapContainer,
+      @NonNull ProgressBar mapProgressBar, @NonNull TextView tvMapProvider,
+      @NonNull TextView tvScanStatus) {
     this.rootView = rootView;
     this.cbLocationView = cbLocationView;
+    this.fabFolderSelect = fabFolderSelect;
     this.fabRescan = fabRescan;
     this.fabSwitchMap = fabSwitchMap;
     this.mapContainer = mapContainer;
     this.mapProgressBar = mapProgressBar;
     this.tvMapProvider = tvMapProvider;
+    this.tvScanStatus = tvScanStatus;
   }
 
   @Override
@@ -87,6 +96,12 @@ public final class ActivityMapBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fabFolderSelect;
+      FloatingActionButton fabFolderSelect = ViewBindings.findChildViewById(rootView, id);
+      if (fabFolderSelect == null) {
+        break missingId;
+      }
+
       id = R.id.fabRescan;
       FloatingActionButton fabRescan = ViewBindings.findChildViewById(rootView, id);
       if (fabRescan == null) {
@@ -117,8 +132,14 @@ public final class ActivityMapBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMapBinding((ConstraintLayout) rootView, cbLocationView, fabRescan,
-          fabSwitchMap, mapContainer, mapProgressBar, tvMapProvider);
+      id = R.id.tvScanStatus;
+      TextView tvScanStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvScanStatus == null) {
+        break missingId;
+      }
+
+      return new ActivityMapBinding((ConstraintLayout) rootView, cbLocationView, fabFolderSelect,
+          fabRescan, fabSwitchMap, mapContainer, mapProgressBar, tvMapProvider, tvScanStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

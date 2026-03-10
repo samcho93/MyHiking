@@ -104,6 +104,15 @@ class MapActivity : AppCompatActivity() {
             }
         }
 
+        viewModel.scanStatus.observe(this) { status ->
+            if (status != null) {
+                binding.tvScanStatus.text = status
+                binding.tvScanStatus.visibility = View.VISIBLE
+            } else {
+                binding.tvScanStatus.visibility = View.GONE
+            }
+        }
+
         viewModel.rescanResult.observe(this) { count ->
             if (count != null) {
                 val msg = if (count > 0) {
@@ -125,6 +134,10 @@ class MapActivity : AppCompatActivity() {
             }
             switchMap(newProvider)
             viewModel.switchMapProvider()
+        }
+
+        binding.fabFolderSelect.setOnClickListener {
+            showFolderSelectDialog()
         }
 
         binding.fabRescan.setOnClickListener {
@@ -205,6 +218,18 @@ class MapActivity : AppCompatActivity() {
         currentMapManager?.setOnEmptyMapLongClickListener { lat, lng ->
             showEmptyMapLongPressDialog(lat, lng)
         }
+        currentMapManager?.setOnMarkerDragListener(object : MapManagerInterface.OnMarkerDragResultListener {
+            override fun onDragStart(mountain: MountainWithPhotos) {
+                Toast.makeText(
+                    this@MapActivity,
+                    getString(R.string.drag_hint, mountain.mountain.name),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            override fun onDragEnd(mountain: MountainWithPhotos, dropLat: Double, dropLng: Double) {
+                handleMarkerDrop(mountain, dropLat, dropLng)
+            }
+        })
     }
 
     /**
@@ -320,6 +345,108 @@ class MapActivity : AppCompatActivity() {
                 launchPhotoPicker(mountain.id, mountain.name)
             }
             .show()
+    }
+
+    /**
+     * 마커 드래그 드롭 처리: 드롭 위치 근처의 산을 찾아 재배치
+     */
+    private fun handleMarkerDrop(
+        source: MountainWithPhotos,
+        dropLat: Double,
+        dropLng: Double
+    ) {
+        val nearbyMountains = viewModel.findNearbyMountains(dropLat, dropLng)
+        val candidates = nearbyMountains.filter { it.first.id != source.mountain.id }
+
+        if (candidates.isEmpty()) {
+            currentMapManager?.snapMarkerBack(source)
+            Toast.makeText(this, getString(R.string.drag_no_target), Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (candidates.size == 1) {
+            val (target, distance) = candidates.first()
+            val distStr = if (distance < 1000) "${distance.toInt()}m"
+            else String.format("%.1fkm", distance / 1000)
+
+            AlertDialog.Builder(this)
+                .setTitle(getString(R.string.drag_confirm_title))
+                .setMessage(
+                    getString(R.string.drag_confirm_message, source.photoCount, source.mountain.name, target.name, distStr)
+                )
+                .setPositiveButton(android.R.string.ok) { _, _ ->
+                    viewModel.reassignAllPhotos(source, target.id)
+                    Toast.makeText(
+                        this,
+                        getString(R.string.reassign_bulk_done, source.photoCount, target.name),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .setNegativeButton(android.R.string.cancel) { _, _ ->
+                    currentMapManager?.snapMarkerBack(source)
+                }
+                .setOnCancelListener {
+                    currentMapManager?.snapMarkerBack(source)
+                }
+                .show()
+        } else {
+            // 여러 후보: ReassignFragment 바텀시트
+            val fragment = ReassignFragment.newInstance(source, candidates) { src, targetId ->
+                viewModel.reassignAllPhotos(src, targetId)
+            }
+            fragment.setOnDismissWithoutSelectionListener {
+                currentMapManager?.snapMarkerBack(source)
+            }
+            fragment.show(supportFragmentManager, ReassignFragment.TAG)
+        }
+    }
+
+    /**
+     * 스캔 폴더 선택 다이얼로그 표시
+     */
+    private fun showFolderSelectDialog() {
+        viewModel.loadPhotoFolders { allFolders ->
+            if (allFolders.isEmpty()) {
+                Toast.makeText(this, getString(R.string.no_photos_found), Toast.LENGTH_SHORT).show()
+                return@loadPhotoFolders
+            }
+
+            viewModel.loadScanFolders { savedFolders ->
+                val folderNames = allFolders.map { it.first }.toTypedArray()
+                val folderLabels = allFolders.map { (name, count) ->
+                    "$name ($count)"
+                }.toTypedArray()
+
+                val checked = BooleanArray(folderNames.size) { i ->
+                    savedFolders == null || folderNames[i] in savedFolders
+                }
+
+                AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.folder_select_title))
+                    .setMultiChoiceItems(folderLabels, checked) { _, which, isChecked ->
+                        checked[which] = isChecked
+                    }
+                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                        val selectedFolders = folderNames.filterIndexed { i, _ -> checked[i] }.toSet()
+                        if (selectedFolders.size == folderNames.size || selectedFolders.isEmpty()) {
+                            // 전체 선택 또는 빈 선택 = 전체 스캔
+                            viewModel.saveScanFoldersAndRescan(emptySet())
+                            Toast.makeText(this, getString(R.string.folder_all_applied), Toast.LENGTH_SHORT).show()
+                        } else {
+                            viewModel.saveScanFoldersAndRescan(selectedFolders)
+                            Toast.makeText(this, getString(R.string.folder_applied, selectedFolders.size), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setNeutralButton(getString(R.string.folder_select_all)) { dialog, _ ->
+                        // 전체 선택 → 전체 스캔으로 변경
+                        viewModel.saveScanFoldersAndRescan(emptySet())
+                        Toast.makeText(this, getString(R.string.folder_all_applied), Toast.LENGTH_SHORT).show()
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        }
     }
 
     /**
