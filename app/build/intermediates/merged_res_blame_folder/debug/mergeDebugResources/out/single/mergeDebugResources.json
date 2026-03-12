@@ -1,110 +1,106 @@
 [
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_fragment_reassign.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\fragment_reassign.xml"
+        "merged": "com.myhiking.app-debug-47:/layout_activity_main.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "com.myhiking.app-debug-47:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.myhiking.app-main-49:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_view_stacked_marker.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_stacked_marker.xml"
+        "merged": "com.myhiking.app-debug-47:/drawable_ic_switch_map.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/ic_switch_map.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_fragment_photo_view.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\fragment_photo_view.xml"
+        "merged": "com.myhiking.app-debug-47:/layout_view_stacked_marker.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/view_stacked_marker.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_item_nearby_mountain.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\item_nearby_mountain.xml"
+        "merged": "com.myhiking.app-debug-47:/drawable_ic_refresh.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "com.myhiking.app-debug-47:/layout_fragment_reassign.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/fragment_reassign.xml"
+    },
+    {
+        "merged": "com.myhiking.app-debug-47:/drawable_bg_photo_count_badge.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/bg_photo_count_badge.xml"
+    },
+    {
+        "merged": "com.myhiking.app-debug-47:/drawable_bg_marker_frame.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/bg_marker_frame.xml"
+    },
+    {
+        "merged": "com.myhiking.app-debug-47:/layout_view_stacked_marker_famous.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/view_stacked_marker_famous.xml"
+    },
+    {
+        "merged": "com.myhiking.app-debug-47:/layout_fragment_photo_list.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/fragment_photo_list.xml"
+    },
+    {
+        "merged": "com.myhiking.app-debug-47:/drawable_ic_close.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/ic_close.xml"
+    },
+    {
+        "merged": "com.myhiking.app-debug-47:/layout_item_nearby_mountain.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/item_nearby_mountain.xml"
     },
     {
         "merged": "com.myhiking.app-debug-47:/layout_activity_map.xml.flat",
         "source": "com.myhiking.app-main-49:/layout/activity_map.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_ic_refresh.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\ic_refresh.xml"
+        "merged": "com.myhiking.app-debug-47:/layout_item_photo_preview.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/item_photo_preview.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\activity_main.xml"
+        "merged": "com.myhiking.app-debug-47:/layout_view_thumbnail_marker.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/view_thumbnail_marker.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_ic_switch_map.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\ic_switch_map.xml"
-    },
-    {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_item_photo_preview.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\item_photo_preview.xml"
-    },
-    {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_bg_photo_count_badge_famous.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\bg_photo_count_badge_famous.xml"
-    },
-    {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_view_stacked_marker_famous.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_stacked_marker_famous.xml"
-    },
-    {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_item_reassign_photo.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\item_reassign_photo.xml"
+        "merged": "com.myhiking.app-debug-47:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.myhiking.app-main-49:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
         "merged": "com.myhiking.app-debug-47:/drawable_ic_folder.xml.flat",
         "source": "com.myhiking.app-main-49:/drawable/ic_folder.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_activity_map.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\activity_map.xml"
+        "merged": "com.myhiking.app-debug-47:/drawable_bg_photo_count_badge_famous.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/bg_photo_count_badge_famous.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_bg_photo_count_badge.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\bg_photo_count_badge.xml"
+        "merged": "com.myhiking.app-debug-47:/layout_view_thumbnail_marker_famous.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/view_thumbnail_marker_famous.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_ic_mountain_default.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\ic_mountain_default.xml"
+        "merged": "com.myhiking.app-debug-47:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_ic_close.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\ic_close.xml"
+        "merged": "com.myhiking.app-debug-47:/layout_item_reassign_photo.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/item_reassign_photo.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_view_thumbnail_marker_famous.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_thumbnail_marker_famous.xml"
+        "merged": "com.myhiking.app-debug-47:/drawable_ic_mountain_default.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/ic_mountain_default.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.myhiking.app-debug-47:/drawable_bg_bottom_sheet.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/bg_bottom_sheet.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_bg_bottom_sheet.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\bg_bottom_sheet.xml"
+        "merged": "com.myhiking.app-debug-47:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_bg_marker_frame.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\bg_marker_frame.xml"
+        "merged": "com.myhiking.app-debug-47:/layout_fragment_photo_view.xml.flat",
+        "source": "com.myhiking.app-main-49:/layout/fragment_photo_view.xml"
     },
     {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_view_thumbnail_marker.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\view_thumbnail_marker.xml"
-    },
-    {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\drawable_bg_marker_frame_famous.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\drawable\\bg_marker_frame_famous.xml"
-    },
-    {
-        "merged": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-debug-47:\\layout_fragment_photo_list.xml.flat",
-        "source": "C:\\Users\\samdo\\.gradle\\daemon\\8.11.1\\com.myhiking.app-main-49:\\layout\\fragment_photo_list.xml"
+        "merged": "com.myhiking.app-debug-47:/drawable_bg_marker_frame_famous.xml.flat",
+        "source": "com.myhiking.app-main-49:/drawable/bg_marker_frame_famous.xml"
     }
 ]

@@ -4,7 +4,7 @@
             "outputFile": "com.myhiking.app-mergeDebugResources-45:/values-w320dp-land-v13/values-w320dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\samdo\\.gradle\\caches\\8.11.1\\transforms\\4569d489e2505edbd796e1caf59d56b2\\transformed\\material-1.12.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+                    "source": "C:\\Users\\samdo\\.gradle\\caches\\8.11.1\\transforms\\99edd1d1c0fb3bcd358e1ca01ce4b033\\transformed\\material-1.12.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
